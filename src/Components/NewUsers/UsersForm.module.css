@@ -1,0 +1,47 @@
+.form-card {
+  width: 30rem;
+  margin: 3rem auto;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 12px rgb(0 0 0 / 20%);
+  background-color: white;
+}
+
+.form-card__flex_column {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-card__flex_column input {
+  border: 2px lightgray solid;
+  padding: 3px;
+}
+
+.input-error {
+  border-bottom: 2px red solid !important;
+}
+
+.input-success {
+  border-bottom: 2px green solid !important;
+}
+
+.form-card__flex_column input:focus {
+  outline: none;
+  border: 2px solid #c3bcbc;
+}
+.form-card__flex_column label {
+  font-weight: bold;
+  margin-bottom: 3px;
+}
+
+.form-card__button {
+  background-color: lightgray;
+  border: none;
+  padding: 8px 15px;
+  margin-top: 3px;
+  font-weight: bold;
+}
+
+.form-card__button:hover {
+  background-color: #c3bcbc;
+}

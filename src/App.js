@@ -1,23 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+/* eslint-disable array-callback-return */
+import UsersForm from "./Components/NewUsers/UsersForm";
+import UserList from "./Components/UserLists/UserList";
+import "./App.css";
+import { useState } from "react";
 
 function App() {
+  const [userList, setUserList] = useState([]);
+  const onSubmitFormHandler = (data) => {
+    setUserList((prevData) => {
+      const updatedData = [data, ...prevData];
+      return updatedData;
+    });
+  };
+
+  const deleteHandler = (id) => {
+    setUserList((prevData) => {
+      const updatedData = prevData.filter((item) => item.id !== id);
+      return updatedData;
+    });
+  };
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <UsersForm onSubmitForm={onSubmitFormHandler} />
+      <UserList userData={userList} onDelete={deleteHandler} />
     </div>
   );
 }
