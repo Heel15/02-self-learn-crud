@@ -1,13 +1,13 @@
 import UserListsItem from "../UserListsItem/UserListsItem";
-import styles from "../UserLists/UserList.module.css";
+import Card from "../UI/Card";
 const UserList = (props) => {
   const deleteHandler = (key) => {
     props.onDelete(key);
   };
   return (
-    <div>
+    <>
       {props.userData.length > 0 ? (
-        <div className={styles["card-style"]}>
+        <Card>
           {props.userData.map((item) => (
             <UserListsItem
               key={item.id}
@@ -17,11 +17,11 @@ const UserList = (props) => {
               onDelete={deleteHandler}
             />
           ))}
-        </div>
+        </Card>
       ) : (
         ""
       )}
-    </div>
+    </>
   );
 };
 
